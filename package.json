@@ -1,0 +1,76 @@
+{
+  "name": "resume-engine",
+  "version": "0.1.0",
+  "description": "Lightweight, schema-driven resume editor and export engine.",
+  "type": "module",
+  "main": "dist/resume-engine.umd.js",
+  "module": "dist/resume-engine.es.js",
+  "types": "dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/resume-engine.es.js",
+      "require": "./dist/resume-engine.umd.js"
+    },
+    "./templates": {
+      "types": "./dist/types/templates/index.d.ts",
+      "import": "./dist/resume-engine.es.js"
+    },
+    "./react": {
+      "types": "./dist/types/react/index.d.ts",
+      "import": "./dist/resume-engine.es.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -p tsconfig.build.json && vite build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "resume",
+    "editor",
+    "pdf",
+    "docx",
+    "react",
+    "vite"
+  ],
+  "author": "",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "pdf-lib": "^1.17.1",
+    "docx": "^8.5.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "6.9.1",
+    "@types/node": "24.10.0",
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
+    "@vitejs/plugin-react": "5.1.0",
+    "eslint": "9.39.1",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-plugin-react": "7.37.5",
+    "typescript-eslint": "8.46.3",
+    "typescript": "5.9.3",
+    "vite": "7.2.2",
+    "vitest": "4.0.7"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
+  },
+  "engines": {
+    "node": ">=18.18.0"
+  }
+}

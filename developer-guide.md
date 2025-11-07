@@ -1291,6 +1291,8 @@ export type PrintPreset = keyof typeof PRINT_PRESETS;
 npm run build
 ```
 
+> 当前仓库已落地 Vite 7 + React 19 + TypeScript 5.9 的基础脚手架：`npm run dev` 会启动根目录 `index.html` + `src/dev` 的演示编辑器，`npm run build` 通过 Vite library mode 产出 `dist/resume-engine.(es|umd).js` 与 `dist/types`，`npm run test` 走 Vitest（jsdom 环境），`npm run lint` 使用 Flat Config（ESLint 9 + typescript-eslint 8 + react）。新增依赖与脚本时请同步在此处说明。
+
 构建输出：
 - ESM: `dist/resume-engine.es.js`
 - UMD: `dist/resume-engine.umd.js`

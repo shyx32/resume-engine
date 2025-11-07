@@ -1,0 +1,279 @@
+:root {
+  --page-width: 794px;
+  --page-height: 1123px;
+  --page-scale: 0.5;
+  font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
+  color: #1f2328;
+  background-color: #f6f8fa;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+.workspace {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1.5rem;
+}
+
+.workspace__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.workspace__header-left {
+  display: flex;
+  align-items: flex-end;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.workspace__header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.workspace__main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1.25rem;
+  min-height: 420px;
+}
+
+.panel {
+  background: #fff;
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow:
+    0 0 0 1px rgba(15, 23, 42, 0.05),
+    0 10px 30px rgba(15, 23, 42, 0.08);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.panel__title {
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.panel__body {
+  flex: 1;
+  min-height: 0;
+}
+
+.panel--viewer .panel__body {
+  background: linear-gradient(135deg, #f8fafc 0%, #fff 60%);
+  border-radius: 12px;
+  padding: 1.5rem;
+  overflow: auto;
+  min-height: calc(var(--page-height) * var(--page-scale) + 2rem);
+  max-height: calc(var(--page-height) * var(--page-scale) + 2rem);
+}
+
+.panel--editor .panel__body {
+  overflow: auto;
+  min-height: calc(var(--page-height) * var(--page-scale) + 2rem);
+  max-height: calc(var(--page-height) * var(--page-scale) + 2rem);
+}
+
+.panel--json {
+  overflow: auto;
+}
+
+.viewer-surface article {
+  margin: 0 auto;
+}
+
+.panel--json {
+  max-height: 300px;
+}
+
+.json-preview {
+  margin: 0;
+  flex: 1;
+  background: #0f172a;
+  color: #e2e8f0;
+  padding: 1rem;
+  border-radius: 10px;
+  overflow: auto;
+  font-size: 0.9rem;
+}
+
+.template-picker {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.template-picker select {
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #cbd5f5;
+  min-width: 140px;
+}
+
+.export-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.export-actions button {
+  padding: 0.45rem 0.9rem;
+  border-radius: 8px;
+  border: none;
+  background: #2563eb;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.export-actions button:last-child {
+  background: #0f172a;
+}
+
+@media (max-width: 960px) {
+  .workspace__main {
+    grid-template-columns: 1fr;
+  }
+}
+
+.resume-carousel {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.resume-pages {
+  position: relative;
+  width: 100%;
+  max-width: calc(var(--page-width) * var(--page-scale));
+  justify-content: center;
+  display: flex;
+}
+
+.resume-page-wrapper {
+  display: none;
+  position: relative;
+  width: calc(var(--page-width) * var(--page-scale));
+  height: calc(var(--page-height) * var(--page-scale));
+}
+
+.resume-page-wrapper.is-active {
+  display: block;
+}
+
+.resume-page__image {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  box-shadow:
+    0 20px 40px rgba(15, 23, 42, 0.2),
+    0 0 0 1px rgba(15, 23, 42, 0.05);
+}
+
+.resume-page__footer {
+  text-align: center;
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+.viewer-placeholder {
+  padding: 2rem;
+  color: #475569;
+  text-align: center;
+  width: 100%;
+}
+
+.viewer-placeholder--error {
+  color: #dc2626;
+}
+
+.carousel-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: #e2e8f0;
+  color: #475569;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.carousel-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.viewer-section {
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.viewer-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.viewer-section h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #0f172a;
+}
+
+.viewer-section__items {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.viewer-item {
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+  background: #f8fafc;
+}
+
+.viewer-field {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
+
+.viewer-field__label {
+  font-weight: 600;
+  color: #475569;
+  min-width: 80px;
+}
+
+.viewer-field__value {
+  color: #0f172a;
+  flex: 1;
+}
+
+.viewer-item__empty {
+  color: #94a3b8;
+}
+.viewer-wrapper {
+  position: relative;
+}
+
+.viewer-measurements {
+  top: 0;
+  left: -9999px;
+}
